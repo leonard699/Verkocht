@@ -2,7 +2,7 @@ package verkocht;
 
 public class Player{
     private int x, y;
-    private Item[1] inventory;
+    private Item[] inventory = new Item[1];
     private int money;
     private int xp;
 
@@ -20,7 +20,7 @@ public class Player{
             case 'd':
                 x++;
                 break;
-            case default:
+            default:
                 break;
         }
     }
@@ -42,20 +42,24 @@ public class Player{
     }
 
     public void pickUp(Item i) {
-        // freeSlot wird durch -1 blockiert => wenn nach dem loop immernoch -1 ist das Inventar voll
+        // freeSlot is blocked with -1 => if freeSlot is still -1 after the loop, it means the inventory is full
         int freeSlot = -1;
-        int counter = 0;
-        for (Item invItem : Inventory) {
-            if (invItem.name == i.n ame) {
+        
+        for (int counter = 0; counter < inventory.length(); counter++) {
+            Item invItem = inventory[counter];
+
+            if (invItem.name == i.name) {
                 invItem.addAmount(i.getAmount());
                 return;
             } else if (invItem == null) {
                 freeSlot = counter; 
             }
-            
-            counter++;
         }
 
-
+        // return if the inventory is full
+        if (freeSlot == 0) { return; }
+        
+        // Put the item into the inventory on the last recorded free Slot
+        inventory[freeSlot] = i;  
     }
 }
