@@ -1,6 +1,25 @@
 package verkocht;
-public class Customer{
-    int satisfication; // Meme of the day: satisfication
-    String name;
+import java.util.Random;
+
+public class Customer {
+	
+	String name;
+	int satisfication;
+	
+	    
+	public Customer (String name, int satisfication) {
+		this.name = name;
+		this.satisfication = satisfication;
+	}
+	public void order() {
+		Random random = new Random();
+		String meal = Main.meals.get(
+		        random.nextInt(Main.meals.size())
+		        );
+		Order order1 = new Order(234,meal, this);
+		Main.orders.add(order1);
+		
+		
+	}
 
 }
