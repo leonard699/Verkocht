@@ -9,13 +9,20 @@ public class Verkocht {
 	public static ArrayList<Meal> meals = new ArrayList<>();
 
     public static void main(String[] args) {
-        String[] pingredients = {"Mehl","Tomaten","Käse"};
+        //Testdaten
+		Ingredient teig = new Ingredient("Teig",1,2,3);
+		Ingredient tomate = new Ingredient("Tomate",1,2,3);
+		Ingredient salat = new Ingredient("Salat",1,2,3);
+		Ingredient fleisch = new Ingredient("Fleisch",1,2,3);
+		Ingredient broetchen = new Ingredient("Brötchen",1,2,3);
+		Ingredient kaese = new Ingredient("Käse",1,2,3);
+		Ingredient[] pingredients = {teig,tomate,kaese};
 		meals.add(new Meal("Pizza",10,10,pingredients));
-		String[] bingredients = {"Salat","Fleisch","Brötchen"};
+		Ingredient[] bingredients = {kaese,fleisch,broetchen,tomate,salat};
 		meals.add(new Meal("Burger",13,10,bingredients));
-		String[] ningredients = {"Mehl","Eier","Pesto"};
+		Ingredient[] ningredients = {teig,tomate,kaese,fleisch};
 		meals.add(new Meal("Nudeln",8,10,ningredients));
-		// Nur zum testen.
+	
 		Customer Kunde1 = new Customer("Tom",13);
 		Kunde1.order();
 		Customer Kunde2 = new Customer("Tina",13);
