@@ -13,8 +13,8 @@ public class Customer {
 	}
 	public void order() {
 		Random random = new Random();
-		String meal = Verkocht.meals.get(
-		        random.nextInt(Verkocht.meals.size())
+		Meal meal = Main.meals.get(
+		        random.nextInt(Main.meals.size())
 		        );
 		Order order1 = new Order(234,meal, this);
 		Main.orders.add(order1);
