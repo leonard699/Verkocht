@@ -5,15 +5,19 @@ public class Item {
     int price;
     int amount;
 
-    public void getAmount() {
+    public int getAmount() {
         return amount;
+    }
+
+    public void setAmount() {
+        this.amount = amount;
     }
 
     public void addAmount(int amnt) {
         amount += amnt;
     }
 
-    	public String getName() {
+    public String getName() {
         return name;
     }
 
@@ -21,19 +25,19 @@ public class Item {
 		this.name = name;
 	}
 
-	public String getPrice() {
+	public int getPrice() {
         return price;
     }
 
-	public void setPrice(String price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 
-    // rmAmount == removeAmount
-    public boolean rmAmount(int amnt) {
-        if (amount -= amnt < 0) {
+    public boolean reduceAmount(int amnt) {
+        if (amount - amnt < 0) {
             return false;
         }
         amount -= amnt;
+        return true;
     }
 }

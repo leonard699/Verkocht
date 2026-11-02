@@ -4,12 +4,12 @@ import java.util.Random;
 public class Customer {
 	
 	String name;
-	int satisfication;
+	int satisfaction;
 	
 	    
-	public Customer (String name, int satisfication) {
+	public Customer (String name, int satisfaction) {
 		this.name = name;
-		this.satisfication = satisfication;
+		this.satisfaction = satisfaction;
 	}
 	public void order() {
 		Random random = new Random();
@@ -18,7 +18,6 @@ public class Customer {
 		        );
 		Order order1 = new Order(234,meal, this);
 		Main.orders.add(order1);
-		
 		
 	}
 

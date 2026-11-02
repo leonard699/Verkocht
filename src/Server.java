@@ -1,6 +1,6 @@
 package verkocht;
 
-public class Server extends Employee{
+/*public class Server extends Employee{
     //Konstruktor
     public Server(int x, int y, String eName,int upFrontPrice, int annualPay){
         xCord = x;
@@ -11,4 +11,4 @@ public class Server extends Employee{
         paycheck = annualPay;
     }
 
-}
+}*/

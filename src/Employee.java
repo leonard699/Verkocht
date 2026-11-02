@@ -8,6 +8,15 @@ public class Employee {
 	private Item[] inventory;
     private int price;
     private int paycheck;
+
+	public Employee(int x, int y, String name, Item[] inventory, int price, int paycheck){
+		this.xCord = x;
+		this.yCord = y;
+		this.name = name;
+		this.inventory = inventory;
+		this.price = price;
+		this.paycheck = paycheck;
+	}
 	
 	//Koordinaten setten
 	public void setCords(int x, int y) {
@@ -46,7 +55,7 @@ public class Employee {
 	public void move(int targetX, int targetY) {
 		//insert pathfinding zum Ziel
 	}
-    //Item-pickup Methode
+    /*Item-pickup Methode
 	public void pickUp(item i) {
 		if() {
 			//insert item pickup lines + if-clause
@@ -58,6 +67,6 @@ public class Employee {
 		if() {
 			//insert item drop line + if-clause
 		}
-	}
+	} */
 			
 }
