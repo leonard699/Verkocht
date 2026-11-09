@@ -1,4 +1,4 @@
-/*package verkocht;
+package verkocht;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -35,4 +35,3 @@ public class Verkocht {
         }
     }
 }
-*/
