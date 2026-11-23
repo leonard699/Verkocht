@@ -1,13 +1,13 @@
 package verkocht;
-
+//Adam
 public class Employee {
-	private int xCord;
-	private int yCord;
-	private String name;
-	private int xp;
-	private Item[] inventory;
-    private int price;
-    private int paycheck;
+	protected int xCord;
+	protected int yCord;
+	protected String name;
+	protected int xp;
+	protected Item[] inventory;
+    protected int price;
+    protected int paycheck;
 
 	public Employee(int x, int y, String name, Item[] inventory, int price, int paycheck){
 		this.xCord = x;

@@ -1,15 +1,19 @@
 package verkocht;
 
 import java.util.ArrayList;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import javax.swing.JFrame;
 
 public class Player {
-
     // Attributes
     private int x;
     private int y;
     private ArrayList<Item> inventory;
     private int money;
     private int xp;
+    private BufferedImage img; 
+    private int width, height = 50;
 
     // Constructor
     public Player() {
@@ -107,6 +111,10 @@ public class Player {
                     item.getName() + " - Amount: " + item.getAmount()
             );
         }
+    }
+
+    public void draw(Graphics2D g2d, JFrame obs) {
+        g2d.drawImage(img, x, y, width, height, obs);
     }
 
     public void cook() {
