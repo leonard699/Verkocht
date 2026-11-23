@@ -1,6 +1,9 @@
 package verkocht;
+
+import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Random;
+import verkocht.Meal;
 
 
 public class Verkocht {
@@ -11,7 +14,7 @@ public class Verkocht {
 	public static ArrayList<Meal> meals = new ArrayList<>();
 
     public static void main(String[] args) {
-        //Testdaten 
+        //Testdaten
 		//Zutaten
 		Ingredient teig = new Ingredient("Teig",1,2,3);
 		Ingredient tomate = new Ingredient("Tomate",1,2,3);
