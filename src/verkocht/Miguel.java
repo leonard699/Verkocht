@@ -3,13 +3,13 @@ package verkocht;
 //CODE BY ADAM
 public class Miguel extends Customer{
     public Miguel(int x, int y) {
-        super("Miguel", 10, x, y);
+        super(10, x, y);
+        this.name = "Miguel Migel";
     }
 
-    public void tick() {
+    public void miguelMove() {
         if(this.satisfaction <= 0){
-            //shoot up laden ((ich) bin laden)
+            Verkocht.player1.changeMoney(-50);
         }
     }
-    
 }

@@ -6,18 +6,23 @@ import verkocht.Verkocht;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.Arrays;
 
+public class Window extends JFrame{
+    Panel UI;
 
-public class window extends JFrame{
-    public window() {
+    public Window() {
+        super("Verkocht");
+        UI = new Panel();
+        add(UI);
+        setLocationRelativeTo(null);
         setSize(1280, 720);
-        setVisible(true);
         setAlwaysOnTop(true);
-        setResizable(false);
         setFocusable(true);
+        setResizable(false);
         setDefaultCloseOperation(3);
+        setVisible(true);
 
+        
         addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent keyEvent) {
@@ -26,13 +31,16 @@ public class window extends JFrame{
             
             @Override
             public void keyPressed(KeyEvent keyEvent) {
-                if (Arrays.asList(new char[]{'w', 'a', 's', 'd'}).contains(keyEvent.getKeyChar())) {
-                    System.out.println(keyEvent.getKeyChar());
-                    Verkocht.player1.move(keyEvent.getKeyChar());
-
-                    System.out.println("X: " + Verkocht.player1.getX());
-                    System.out.println("Y: " + Verkocht.player1.getY());
+                System.out.println(keyEvent.getKeyChar());
+                switch (keyEvent.getKeyChar()) {
+                    case 'w', 'a', 's', 'd':
+                        Verkocht.player1.move(keyEvent.getKeyChar());
+                        break;
+                    default:
+                        break;
                 }
+
+                UI.repaint();
             }
 
             @Override
@@ -40,7 +48,8 @@ public class window extends JFrame{
                 return;
             }
         });
-    }
+        
 
-    
+
+    }
 }

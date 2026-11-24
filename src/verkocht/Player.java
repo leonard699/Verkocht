@@ -1,78 +1,92 @@
 package verkocht;
 
-import java.util.ArrayList;
+import java.awt.Color;
 import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
-import javax.swing.JFrame;
+import java.io.File;
+
+import javax.swing.JPanel;
+
+import ui.Spritesheet;
 
 public class Player {
     // Attributes
-    private int x;
-    private int y;
-    private ArrayList<Item> inventory;
+    private int x = 0;
+    private int y = 0;
+    private Item[] inventory = new Item[1];;
     private int money;
     private int xp;
-    private BufferedImage img; 
-    private int width, height = 50;
+    private int width = 50;
+    private int height = 50;
+    private Spritesheet spsh;
+    private int maxItems = 1;
+    private int speed = 15;
 
     // Constructor
     public Player() {
-        this.x = 0;
-        this.y = 0;
-        this.inventory = new ArrayList<>();
-        this.money = 0;
-        this.xp = 0;
+        x = 0;
+        y = 0;
+        money = 0;
+        xp = 0;
+        spsh = new Spritesheet(new File("Assets/Player/Spritesheet.png"));
     }
 
     // Move player
     public void move(char dir) {
         switch (dir) {
             case 'w':
-                y--;
+                y -= speed;
                 break;
             case 's':
-                y++;
+                y += speed;;
                 break;
             case 'a':
-                x--;
+                x -= speed;
                 break;
             case 'd':
-                x++;
+                x += speed;
                 break;
         }
+
+        System.out.println("MOVED: x:" + x + ", y: " + y);
     }
 
     // Pick up an item
     public void pickUp(Item item) {
+        int freeSlot = -1;
 
         // Check if the item is already in the inventory
-        for (Item invItem : inventory) {
+        for (int counter = 0; counter < inventory.length; counter++) {
+            Item invItem = inventory[counter];
 
-            if (invItem.getName().equals(item.getName())) {
+            if (invItem.name == item.name) {
                 invItem.addAmount(item.getAmount());
                 return;
+            } else if (invItem == null) {
+                freeSlot = counter;
             }
         }
 
+        if (freeSlot < 0) { return; }
+
         // Add item if it is not already in the inventory
-        inventory.add(item);
+        inventory[freeSlot] = item;
     }
 
     // Drop an item
     public void drop(Item item) {
-
+        int counter = 0;
         for (Item invItem : inventory) {
-
             if (invItem.getName().equals(item.getName())) {
-                inventory.remove(invItem);
+                inventory[counter] = null;
                 return;
             }
+            counter++;
         }
     }
 
     // Get inventory
-    public ArrayList<Item> getInventory() {
-        return new ArrayList<>(inventory);
+    public Item[] getInventory() {
+        return inventory;
     }
 
     // Get position
@@ -113,8 +127,21 @@ public class Player {
         }
     }
 
-    public void draw(Graphics2D g2d, JFrame obs) {
-        g2d.drawImage(img, x, y, width, height, obs);
+    public void draw(Graphics2D g2d, JPanel obs) {
+        Color c = g2d.getColor();
+        
+        g2d.setColor(Color.RED);
+        g2d.fillRect(x, y, width, height);
+
+        g2d.setColor(c);
+        //g2d.drawImage(img, x, y, width, height, obs);
+    }
+
+    public void changeMoney(int change) {
+        if (money - change < 0) {
+            return;
+        }
+        money += change;
     }
 
     public void cook() {

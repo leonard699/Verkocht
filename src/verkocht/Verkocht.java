@@ -3,7 +3,7 @@ package verkocht;
 import java.util.List;
 import java.util.Scanner;
 
-import ui.window;
+import ui.Window;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -34,12 +34,14 @@ public class Verkocht {
 		Ingredient[] ningredients = {teig,tomate,kaese,fleisch};
 		meals.add(new Meal("Nudeln",8,10,new ArrayList<>(List.of(ningredients))));
 		//Kunden
-		Customer Kunde1 = new Customer("Tom",13, 0, 0);
+		Customer Kunde1 = new Customer(13, 0, 0);
 		Kunde1.order();
 		customers.add(Kunde1);
-		Customer Kunde2 = new Customer("Tina",13,0, 1);
+		Customer Kunde2 = new Customer(13,0, 1);
 		Kunde2.order();
 		customers.add(Kunde2);
+
+		Lib.init();
 
 		for (Customer k : customers) {
 			k.lowerSatisfaction(1);
@@ -51,21 +53,17 @@ public class Verkocht {
         System.out.println("Anzahl Bestellungen: " + orders.size());
 
         // Gerichte ausgeben
-        System.out.println("Verfügbare Gerichte:");
+        System.out.println("Verfuegbare Gerichte:");
 
         for (int i=0; i<meals.size(); i++) {
             System.out.println(meals.get(i).getName() + " - " + meals.get(i).getPrice() + " Euro");
         }
 
-        new window();
+        new Window();
 
         for (int i = 1; i <= 5; i++) {
             System.out.println("i = " + i);
         }
-		
-		while (true) {
-
-		}
     }
 
 	public void sleep(int ms) {
