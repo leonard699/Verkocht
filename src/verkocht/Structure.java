@@ -1,3 +1,4 @@
+// von Benni
 package verkocht;
 
 // Stühle, Tische und Küchengeräte haben alle eine Position im Raum.
