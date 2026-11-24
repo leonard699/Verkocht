@@ -1,3 +1,4 @@
+// von Benni
 package verkocht;
 
 // Herd und Ofen benutzen denselben Ablauf beim Kochen.
