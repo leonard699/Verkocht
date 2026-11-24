@@ -1,3 +1,4 @@
+// von Benni
 package verkocht;
 
 public class Table extends Structure {
