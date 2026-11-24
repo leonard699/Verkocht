@@ -1,3 +1,4 @@
+// von Benni
 package verkocht;
 
 public class CookingArea extends Structure {
