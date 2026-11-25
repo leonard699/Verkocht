@@ -10,6 +10,11 @@ import java.util.Random;
 
 
 public class Verkocht {
+	// Position und Groesse des Topfes auf dem Spielfeld
+	public static final int POT_X = 300;
+	public static final int POT_Y = 130;
+	public static final int POT_SIZE = 100;
+
 	public static Player player1 = new Player();
     static Scanner scanner = new Scanner(System.in);
     Random random = new Random();

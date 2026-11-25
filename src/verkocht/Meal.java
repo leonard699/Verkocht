@@ -7,6 +7,7 @@ public class Meal extends Item {
 	private int price;
 	private ArrayList<Ingredient> ingredientList;
 	private int timeUnit;
+	private int availability;
 
 	public Meal(String name, int price, int time, ArrayList<Ingredient> ingredient){
 		this.name = name;
@@ -29,6 +30,14 @@ public class Meal extends Item {
 
 	public void setIngredientList(ArrayList<Ingredient> ingredientList) {
 		this.ingredientList = ingredientList;
+	}
+
+	public int getAvailability() {
+		return availability;
+	}
+
+	public void setAvailability(int availability) {
+		this.availability = availability;
 	}
 
 }
