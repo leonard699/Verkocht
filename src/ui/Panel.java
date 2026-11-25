@@ -58,7 +58,7 @@ public class Panel extends JPanel {
         // Tastatursteuerung mit Key Bindings: funktioniert ohne besonderen Fokus
         InputMap inputMap = getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
         ActionMap actionMap = getActionMap();
-        int[] keys = { KeyEvent.VK_UP, KeyEvent.VK_LEFT, KeyEvent.VK_DOWN, KeyEvent.VK_RIGHT };
+        int[] keys = { KeyEvent.VK_W, KeyEvent.VK_A, KeyEvent.VK_S, KeyEvent.VK_D };
         char[] directions = { 'w', 'a', 's', 'd' };
 
         for (int i = 0; i < keys.length; i++) {
